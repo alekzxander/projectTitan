@@ -5,10 +5,24 @@ Hesité pas a noté les modules rajouté
 
 #Json ok faite un npm install
 Modules installé : 
--express
--ejs
--nodemon(deja configuré dans le json/ Utiliser npm start pour demarrer le projet)
--bootstrap
+# express
+# ejs
+# nodemon(deja configuré dans le json/ Utiliser npm start pour demarrer le projet)
+# bootstrap
+# mongoose
+# passport
+# passport-local
+# passport-facebook
+# passport-twitter
+# passport-google-oauth
+# connect-flash
+# bcrypt-nodejs
+# morgan
+# body-parser
+# cookie-parser
+# method-override
+# express-session
+
 
 #dossier
 -Public(Ajouter votre css);
