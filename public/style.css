@@ -13,6 +13,7 @@ body
     padding: 10px;
     text-align: center;
     box-shadow: inset 0 0 9px #D4D4D4;
+    height: 700px;
 }
 .carte img
 {
@@ -29,13 +30,27 @@ body
 }
 .carte p 
 {
-    font-size: 15px;
-    letter-spacing: 2px;
+    
+    font-size: 18px;
+    width: 250px;
+    margin: auto;
+    
+}
+
+.detail 
+{
+     height: 70px;
+     overflow-x: scroll;
 }
 .date h3 
 {
     color: orange;
     letter-spacing: 2px;
+}
+.date p 
+{
+   letter-spacing: 2px;
+   margin-bottom: 20px;
 }
 .prix p 
 {
@@ -83,4 +98,8 @@ button:hover
 {
     width: 150px;
     margin: 0 auto;
+}
+.carte button
+{
+    margin-top: 50px;
 }
