@@ -1,10 +1,10 @@
 # projectTitan
 
-J'ai installé toute les dependance et bootstrap aussi que la config necessaire pour faire tourné les fichiers css
-Hesité pas a noté les modules rajouté
+J'ai installé toutes les dépendances et bootstrap aussi que la config nécessaire pour faire tourner les fichiers css
+N'hesitez pas à noter les modules rajoutés
 
-#Json ok faite un npm install
-Modules installé : 
+#Json ok faire un npm install
+Modules installés : 
 # express
 # ejs
 # nodemon(deja configuré dans le json/ Utiliser npm start pour demarrer le projet)
