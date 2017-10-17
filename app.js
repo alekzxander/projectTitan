@@ -12,7 +12,9 @@ app.get('/', (req, res) => {
     res.render('Menu.ejs')
 })
 
-
+app.get('/', (req, res) =>{
+    res.render('carte.ejs')
+})
 
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css/'));
 
