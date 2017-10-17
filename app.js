@@ -3,13 +3,10 @@ let ejs = require('ejs');
 let app = express();
 
 
+app.set('view engine','ejs')
 
 app.get('/', (req, res) => {
-    res.render('Header.ejs')
-})
-
-app.get('/', (req, res) => {
-    res.render('Menu.ejs')
+    res.render('index.ejs')
 })
 
 
