@@ -2,7 +2,7 @@
   body {
     position: relative;
     overflow-x: hidden;
-    background: #FDFBFB;
+    
 }
 body,
 html { height: 100%;}
@@ -22,6 +22,7 @@ html { height: 100%;}
     transition: all 0.5s ease;
     margin: 0 auto;
     padding: 0 auto ;
+    background: #47A2DB;
 }
 
 #wrapper.toggled {
@@ -300,18 +301,25 @@ log {
     margin-top : 15px;
   } 
   
-  .container {
+  .container-img {
     margin-top: 30px;
+    margin-bottom: 30px;
+    background: #6F8999;
   }
   
   .carousel-item {
     width: auto;
     height: 700px;
-  }
+  } 
 
+  
   
 
   /* ========== CARTE ================= */ 
+
+.card{
+    background : #FFB753;
+}
 
   .carte 
   {
@@ -325,7 +333,10 @@ log {
       text-align: center;
       box-shadow: inset 0 0 9px #D4D4D4;
       height: 700px;
+      
+
   }
+
   .carte img
   {
       width: 400px;
@@ -392,3 +403,23 @@ log {
       margin: 0 auto;
   }
  
+
+  /* =======FOOTER ============*/
+
+  footer {
+      display: inline-flex;
+      width: 750px;
+      
+  }
+
+  .copyright {
+      margin-left: 250px;
+  }
+
+  .mleg{
+      margin-left: 350px;
+  }
+ 
+  .icons {
+      margin-left: 470px;
+  }
