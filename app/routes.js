@@ -1,10 +1,12 @@
 module.exports = function (app, passport) {
-
+let voyage = require('./models/voyage')
     // normal routes ===============================================================
 
     // show the home page (will also have our login links)
     app.get('/', function (req, res) {
-        res.render('index.ejs');
+        voyage.find((err, voyages)=>{
+            res.render('index.ejs', { mesVoyages : voyages});
+        });
     });
 
     // PROFILE SECTION =========================
