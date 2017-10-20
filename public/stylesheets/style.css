@@ -320,7 +320,9 @@
   }
   /* =============== HEADER ======================*/
 header {
-    margin-bottom: 90px;    
+    margin-bottom: 90px;
+    padding-bottom: 71px;
+    background: #EEE9E9;    
 }
   .p_guide {
       font-style: italic;
@@ -408,7 +410,7 @@ header {
       margin-top: 50px;
       font-family: Arial, Helvetica, sans-serif;
   }
-  
+
   .propos :hover {
       background-color: red;
       cursor: pointer;
@@ -442,3 +444,4 @@ header {
       margin-left: 30px;
       color: #fff;
   }
+  

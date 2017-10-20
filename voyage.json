@@ -1,0 +1,59 @@
+/* 1 */
+{
+    "_id" : ObjectId("59e6e07142c9e1942b62c295"),
+    "name" : "New-York",
+    "dateA" : "13 Janvier 2018",
+    "dateR" : "29 janvier 2018",
+    "sejour" : "16 jours",
+    "preview" : "Un voyage aux Etats-Unis, c’est d’abord découvrir New York, capitale culturelle de la côte Est, ville bouillonnante sans cesse renouvelée. ",
+    "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "img" : "newYork.jpg"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("59e6e3e3616911883064eb5a"),
+    "name" : "Londres",
+    "dateA" : "13 fevrier 2018",
+    "dateR" : "04 mars 2018",
+    "sejour" : "30jours",
+    "preview" : "La chance de voir quelques universitées qu'on trouve dans les listes de meilleurs écoles du monde comme le UCL, Univerité de Cambrige, l'université d'Oxford, et bien d'autres...",
+    "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "img" : "london.jpg"
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("59e6e6a8616911883064ebce"),
+    "name" : "Chine",
+    "dateA" : "10 mars 2018",
+    "dateR" : "20 mars 2018",
+    "sejour" : " 20 jours",
+    "preview" : "La Chine le pays du Mandarin et des dragons",
+    "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "img" : "chine.jpg"
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("59e6ea8f616911883064ec77"),
+    "name" : "Afrique du Sud",
+    "dateA" : "12 Janvier 2018",
+    "dateR" : "19 Fevrier 2018",
+    "sejour" : "25 jours",
+    "preview" : "Pays aux mille facette et terre de contraste et d'aventure c'est la destination idéale pour les amoureux de la nature et des animaux... Sagéographie est tout simplement execptionelle. Entre les grand espaces, montagnes déserts, parcs nationaux, réserve naturelles et plage de rêve, l'Afrique du Sud offre une grande diversité de paysage d'une beauté sans pareille",
+    "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "img" : "africa.jpg"
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("59e6ec1f616911883064ecd2"),
+    "name" : "Monaco",
+    "dateA" : "12 Avril 2018",
+    "dateR" : "22 Avril 2018",
+    "sejour" : "10 jours",
+    "preview" : "L'argent, les belles voiture et les putes...Monaco",
+    "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "img" : "monaco.jpg"
+}
