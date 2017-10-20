@@ -74,4 +74,4 @@ app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css/'))
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(8080)
+module.exports = app;
