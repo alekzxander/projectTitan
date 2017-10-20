@@ -66,6 +66,10 @@ app.get('/profil',(req,res)=> {
 app.get('/contact',(req,res)=>{
     res.render('contact.ejs')
 })
+
+app.get('/mentionslegales',(req,res)=>{
+    res.render('mentions.ejs')
+})
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css/'));
 
 app.use(express.static(__dirname + '/public'));

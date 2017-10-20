@@ -1,24 +1,27 @@
 <div class="container-fluid">
     <div class="row">
+        <% mesVoyages.forEach((voyages)=>{ %>
+
+       
         <div class="col-md-4">
             <div class="carte">
-                <img src="images/newYork.jpg" alt="">
+                <img src="images/<%= voyages.img %>" alt="">
                 <div class="ville">
-                    <h1>New-York</h1>
+                    <h1><%= voyages.name %></h1>
                 </div>
                 <div class="date">
-                    <h3>Voyage de 30 jours !</h3>
-                    <p>-13 janvier 2018 au 23 frevrier 2018-</p>
+                    <h3>Voyage de <%= voyages.sejour %> !</h3>
+                    <p>-<%= voyages.dateA %> au <%= voyages.dateR %>-</p>
                 </div>
-                <div class="Détails">
-                    <p>Un voyage aux Etats-Unis, c’est d’abord découvrir New York, capitale culturelle de la côte Est, ville
-                        bouillonnante sans cesse renouvelée.  </p>
+                <div class="details">
+                    <p><%= voyages.preview %></p>
                 </div>
 
                 <p><button class="propos">Détails</button></p>
                 <a href="/contact"><button class="btn btn-danger">Je suis intéressé</button></a>
             </div>
         </div>
+      <%  }); %>
     </div>
 </div>
                 
