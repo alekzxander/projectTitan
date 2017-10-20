@@ -47,6 +47,29 @@ require('./app/routes.js')(app, passport); // load our routes and pass in our ap
 
 app.set('view engine','ejs')
 
+app.get('/', (req, res) => {
+    res.render('index.ejs')
+})
+
+app.get('/login',(req,res)=>{
+    res.render('login.ejs')
+})
+
+app.get('/signup',(req,res)=>{
+    res.render('signup.ejs')
+})
+
+app.get('/profil',(req,res)=> {
+    res.render('profil.ejs')
+})
+
+app.get('/contact',(req,res)=>{
+    res.render('contact.ejs')
+})
+
+app.get('/mentionslegales',(req,res)=>{
+    res.render('mentions.ejs')
+})
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css/'));
 
 app.use(express.static(__dirname + '/public'));

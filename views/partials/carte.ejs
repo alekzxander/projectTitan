@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <% mesVoyages.forEach((voyages)=>{ %>
 
@@ -11,13 +11,13 @@
                 </div>
                 <div class="date">
                     <h3>Voyage de <%= voyages.sejour %> !</h3>
-                    <p>-<%= voyages.dateA %> au <%= voyages.dateR %>-</p>
+                    <p><%= voyages.dateA %> au <%= voyages.dateR %></p>
                 </div>
                 <div class="details">
                     <p><%= voyages.preview %></p>
                 </div>
 
-                <p><button class="propos">Détails</button></p>
+                <p><button class="propos">Détails</button>
                 <a href="/contact"><button class="btn btn-danger">Je suis intéressé</button></a>
             </div>
         </div>
