@@ -50,7 +50,7 @@ require('./app/routes.js')(app, passport); // load our routes and pass in our ap
 
 app.set('view engine','ejs')
 
-app.get('/', (req, res) => {
+  app.get('/', (req, res) => {
     res.render('index.ejs')
 })
 
@@ -69,8 +69,13 @@ app.get('/profil',(req,res)=> {
 app.get('/contact',(req,res)=>{
     res.render('contact.ejs')
 })
+
+app.get('/mentionslegales',(req,res)=>{
+    res.render('mentions.ejs')
+})
+
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css/'));
 
 app.use(express.static(__dirname + '/public'));
 
-app.listen(8080)
+module.exports = app;
