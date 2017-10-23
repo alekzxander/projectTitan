@@ -8,7 +8,17 @@ let voyage = require('./models/voyage')
             res.render('index.ejs', { mesVoyages : voyages});
         });
     });
-
+    app.get('/voyage/:id', ((req, res) => {
+        voyage.find((err, voyages) => {
+            res.render('voyage.ejs', {
+                itineraire: req.params.id, mesVoyages: voyages.filter((voyage) => {
+                    return voyage.id == req.params.id
+                })
+                [0]
+            })
+        })
+    }))
+    
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function (req, res) {
         res.render('profile.ejs', {
@@ -21,7 +31,12 @@ let voyage = require('./models/voyage')
         req.logout();
         res.redirect('/');
     });
-
+    app.get('/contact',(req,res)=>{
+        res.render('contact.ejs')
+    })
+    app.get('/mentionslegales',(req,res)=>{
+        res.render('mentions.ejs')
+    })
     // =============================================================================
     // AUTHENTICATE (FIRST LOGIN) ==================================================
     // =============================================================================
