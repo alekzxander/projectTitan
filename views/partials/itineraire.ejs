@@ -20,31 +20,33 @@
     </div>
     <div class="descriptif" style="margin-top:30px;">
         <h3>Resumé du voyage</h3>
-            <p>
-                <%= mesVoyages.text %>
-            </p>
+        <p>
+            <%= mesVoyages.text %>
+        </p>
     </div>
     <h1>Lieux a visité</h1>
     <% console.log(mesVoyages.lieuxTableau.length) %>
-    <% mesVoyages.lieuxTableau.forEach((obj)=>{ %>
-        <div class="descriptif">
-                
-                        <div class="row">
-                            <div class="col-md-7">
-                                <h3><%= obj.lieuxAVisiterTitre %></h3>
-                                <p>
-                                        <%= obj.lieuxAVisiter %>
-                                </p>
-                            </div>
-                            <div class="col-md-1">
-                                <div class="VerticalSeparator"></div>
-                            </div>
-                            <div class="col-md-4">
-                                <img src="/images/<%= mesVoyages.img %>" class="img-responsive separator" alt="">
-                            </div>
-                        </div>
-                
-                    </div>
+        <% mesVoyages.lieuxTableau.forEach((obj)=>{ %>
+            <div class="descriptif">
 
-   <% }) %>
+                <div class="row">
+                    <div class="col-md-7">
+                        <h3>
+                            <%= obj.lieuxAVisiterTitre %>
+                        </h3>
+                        <p>
+                            <%= obj.lieuxAVisiter %>
+                        </p>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="VerticalSeparator"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/images/<%= mesVoyages.img %>" class="img-responsive separator" alt="">
+                    </div>
+                </div>
+
+            </div>
+
+            <% }) %>
 </div>
