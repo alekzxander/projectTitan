@@ -1,6 +1,21 @@
 module.exports = function (app , passport) {
 let voyage = require('./models/voyage')
     // normal routes ===============================================================
+    app.get ('/dashbord', (req, res)=> {
+        res.render('dashbord.ejs')
+
+    })
+
+    app.get('/dashbord/card', (req, res)=> {
+        res.render('card.ejs')
+})
+
+app.get('/dashbord/dashItineraire', (req, res)=> {
+    res.render('dashItineraire.ejs')
+})
+
+// process the card form
+/*app.post('/dashbord/card')*/
 
     // show the home page (will also have our login links)
     app.get('/', function (req, res) {

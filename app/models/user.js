@@ -12,8 +12,9 @@ var userSchema = mongoose.Schema({
         telephone : Number,
         email   : String,
         password : String,
-    }
+    },
     
+    roles : [String]
 
 });
 
