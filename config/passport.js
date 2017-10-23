@@ -91,6 +91,8 @@ module.exports = function(passport) {
 
                         // create the user
                         var newUser            = new User();
+                        newUser.roles = ['admin'];
+                        newUser.roles = ['user'];
                         newUser.local.telephone = telephone;
                         newUser.local.nom = nom;
                         newUser.local.prenom = prenom;
