@@ -480,16 +480,28 @@
       color: #3D3939;
       letter-spacing: 0.5px;
       font-family: 'Roboto', sans-serif;
+      font-size: 19px;
+  }
+  .descriptif img 
+  {
+      margin-top: 10px;
   }
   .descriptif h3 {
-    color: #5a5454;
+    color: #000000;
     margin-bottom: 20px;
+    margin-top: 30px;
 }
 .VerticalSeparator
 {
     border-left: 1.0px solid #93979C; /* Border on the left */
     width: 0.5px; /* Width instead of height */
     height: 200px;
+}
+@media all and (max-width:890px){
+    .VerticalSeparator
+        {
+            display: none;
+        }
 }
   /* =======FOOTER ============*/
 
