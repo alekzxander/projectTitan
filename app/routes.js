@@ -11,7 +11,7 @@ let voyage = require('./models/voyage')
     app.get('/voyage/:id', ((req, res) => {
         voyage.find((err, voyages) => {
             res.render('voyage.ejs', {
-                itineraire: req.params.id, mesVoyages: voyages.filter((voyage) => {
+                voyage: req.params.id, mesVoyages: voyages.filter((voyage) => {
                     return voyage.id == req.params.id
                 })
                 [0]
