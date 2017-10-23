@@ -1,4 +1,5 @@
-<div class="container-fluid">
+<div class="container">
+   <hr> <h2 class="text-center voyageTitre">Voyages à la carte</h2><hr>
     <div class="row">
         <% mesVoyages.forEach((voyages)=>{ %>
 
@@ -11,14 +12,21 @@
                 </div>
                 <div class="date">
                     <h3>Voyage de <%= voyages.sejour %> !</h3>
-                    <p>-<%= voyages.dateA %> au <%= voyages.dateR %>-</p>
+                    <p><%= voyages.dateA %> au <%= voyages.dateR %></p>
                 </div>
                 <div class="details">
                     <p><%= voyages.preview %></p>
                 </div>
-
-                <p><button class="propos">Détails</button></p>
-                <a href="/contact"><button class="btn btn-danger">Je suis intéressé</button></a>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="voyage/<%= voyages.id %>"><button class="btn btn-warning">Détails</button></a>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="/contact"><button class="btn btn-danger">Je suis intéressé</button></a>
+                    </div>
+                </div>
+               
+                
             </div>
         </div>
       <%  }); %>
