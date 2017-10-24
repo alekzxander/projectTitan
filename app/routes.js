@@ -1,5 +1,12 @@
 module.exports = function (app , passport) {
 let voyage = require('./models/voyage')
+let user = require('./models/user')
+user.find((err, users)=>{
+    users.forEach((obj)=>{{
+        let meuh = obj.local.nom
+        console.log(meuh)
+    }})
+})
     // normal routes ===============================================================
     app.get ('/dashbord', (req, res)=> {
         res.render('dashbord.ejs')
