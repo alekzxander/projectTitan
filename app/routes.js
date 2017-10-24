@@ -1,26 +1,11 @@
-<<<<<<< HEAD
 const permissions = require('../config/permissions');
 
 module.exports = function (app , passport) {
 let voyage = require('./models/voyage')
 let user = require('./models/user')
-user.find((err, users)=>{
-    users.forEach((obj)=>{{
-        let meuh = obj.local.nom
-        console.log(meuh)
-    }})
-})
-    // normal routes ===============================================================
-    app.get ('/dashbord',permissions.can('access admin page'), (req, res)=> {
-=======
-module.exports = function (app, passport) {
-    let voyage = require('./models/voyage')
-    const nodemailer = require("nodemailer");
-    let config = require('../config/passport');
 
     // normal routes ===============================================================
-    app.get('/dashbord', (req, res) => {
->>>>>>> c0dea2eeaa75da2c81e7f9d9f53c31721e299c41
+    app.get ('/dashbord',permissions.can('access admin page'), (req, res)=> {
         res.render('dashbord.ejs')
 
     })
