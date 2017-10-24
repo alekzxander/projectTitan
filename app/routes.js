@@ -1,7 +1,9 @@
+const permissions = require('../config/permissions');
+
 module.exports = function (app , passport) {
 let voyage = require('./models/voyage')
     // normal routes ===============================================================
-    app.get ('/dashbord', (req, res)=> {
+    app.get ('/dashbord',permissions.can('access admin page'), (req, res)=> {
         res.render('dashbord.ejs')
 
     })

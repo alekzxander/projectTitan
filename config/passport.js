@@ -13,7 +13,7 @@ module.exports = function(passport) {
 
     // used to serialize the user for the session
     passport.serializeUser(function(user, done) {
-        done(null, user.id);
+        done(null, user );
     });
 
     // used to deserialize the user
@@ -70,7 +70,8 @@ module.exports = function(passport) {
     function(req, email, password, done) {
         if (email)
             email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
-            
+
+        var roles = req.body.roles;    
         var telephone = req.body.telephone;
         var nom = req.body.nom;
         var prenom = req.body.prenom;
@@ -91,6 +92,7 @@ module.exports = function(passport) {
 
                         // create the user
                         var newUser            = new User();
+                        role: req.body.role;
                         newUser.roles = ['admin'];
                         newUser.roles = ['user'];
                         newUser.local.telephone = telephone;
