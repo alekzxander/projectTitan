@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+const permissions = require('../config/permissions');
+
 module.exports = function (app , passport) {
 let voyage = require('./models/voyage')
 let user = require('./models/user')
@@ -8,44 +11,51 @@ user.find((err, users)=>{
     }})
 })
     // normal routes ===============================================================
-    app.get ('/dashbord', (req, res)=> {
+    app.get ('/dashbord',permissions.can('access admin page'), (req, res)=> {
+=======
+module.exports = function (app, passport) {
+    let voyage = require('./models/voyage')
+    const nodemailer = require("nodemailer");
+    let config = require('../config/passport');
+
+    // normal routes ===============================================================
+    app.get('/dashbord', (req, res) => {
+>>>>>>> c0dea2eeaa75da2c81e7f9d9f53c31721e299c41
         res.render('dashbord.ejs')
 
     })
 
-    app.get('/dashbord/card', (req, res)=> {
+    app.get('/dashbord/card', (req, res) => {
         res.render('card.ejs')
-})
+    })
 
-app.get('/dashbord/dashItineraire', (req, res)=> {
-    res.render('dashItineraire.ejs')
-})
+    app.get('/dashbord/dashItineraire', (req, res) => {
+        res.render('dashItineraire.ejs')
+    })
 
-// process the card form
-/*app.post('/dashbord/card')*/
+    // process the card form
+    /*app.post('/dashbord/card')*/
 
     // show the home page (will also have our login links)
     app.get('/', function (req, res) {
-        voyage.find((err, voyages)=>{
-            res.render('index.ejs', { mesVoyages : voyages});
+        voyage.find((err, voyages) => {
+            res.render('index.ejs', {mesVoyages: voyages});
         });
     });
     app.get('/voyage/:id', ((req, res) => {
         voyage.find((err, voyages) => {
             res.render('voyage.ejs', {
-                voyage: req.params.id, mesVoyages: voyages.filter((voyage) => {
+                voyage: req.params.id,
+                mesVoyages: voyages.filter((voyage) => {
                     return voyage.id == req.params.id
-                })
-                [0]
+                })[0]
             })
         })
     }))
-    
+
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function (req, res) {
-        res.render('profile.ejs', {
-            user: req.user
-        });
+        res.render('profile.ejs', {user: req.user});
     });
 
     // LOGOUT ==============================
@@ -53,19 +63,18 @@ app.get('/dashbord/dashItineraire', (req, res)=> {
         req.logout();
         res.redirect('/');
     });
-    app.get('/contact',(req,res)=>{
+    app.get('/contact', (req, res, next) => {
         res.render('contact.ejs')
     })
-    app.get('/mentionslegales',(req,res)=>{
+    app.get('/mentionslegales', (req, res) => {
         res.render('mentions.ejs')
     })
     // =============================================================================
-    // AUTHENTICATE (FIRST LOGIN) ==================================================
+    // AUTHENTICATE (FIRST LOGIN)
+    // ==================================================
     // =============================================================================
-
-    // locally --------------------------------
-    // LOGIN ===============================
-    // show the login form
+    // locally -------------------------------- LOGIN
+    // =============================== show the login form
     app.get('/login', function (req, res) {
         res.render('login.ejs', {
             message: req.flash('loginMessage')
@@ -79,8 +88,7 @@ app.get('/dashbord/dashItineraire', (req, res)=> {
         failureFlash: true // allow flash messages
     }));
 
-    // SIGNUP =================================
-    // show the signup form
+    // SIGNUP ================================= show the signup form
     app.get('/signup', function (req, res) {
         res.render('signup.ejs', {
             message: req.flash('signupMessage')
@@ -95,16 +103,16 @@ app.get('/dashbord/dashItineraire', (req, res)=> {
     }));
 
     // =============================================================================
-    // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
+    // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT)
+    // =============
     // =============================================================================
-
     // locally --------------------------------
     app.get('/connect/local', function (req, res) {
         res.render('connect-local.ejs', {
             message: req.flash('loginMessage')
         });
     });
-    
+
     app.post('/connect/local', passport.authenticate('local-signup', {
         successRedirect: '/profile', // redirect to the secure profile section
         failureRedirect: '/connect/local', // redirect back to the signup page if there is an error
@@ -112,27 +120,55 @@ app.get('/dashbord/dashItineraire', (req, res)=> {
     }));
 
     // =============================================================================
-    // UNLINK ACCOUNTS =============================================================
+    // UNLINK ACCOUNTS
+    // =============================================================
     // =============================================================================
-    // used to unlink accounts. for social accounts, just remove the token
-    // for local account, remove email and password
-    // user account will stay active in case they want to reconnect in the future
-
-    // local -----------------------------------
+    // used to unlink accounts. for social accounts, just remove the token for local
+    // account, remove email and password user account will stay active in case they
+    // want to reconnect in the future local -----------------------------------
     app.get('/unlink/local', isLoggedIn, function (req, res) {
-        var user = req.user;
+        let user = req.user;
         user.local.email = undefined;
         user.local.password = undefined;
         user.save(function (err) {
             res.redirect('/profile');
         });
     });
+
+    // ============ Formulaire de Contact ====================== 
+
+    app.post('/email', (req, res, next) => {
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'laurent.gregoire974@gmail.com',
+                pass: 'Bit97coin4'
+            }
+        });
+        let mailOptions = {
+            from: req.body.email,
+            to: 'laurent.gregoire974@gmail.com',
+            subject: req.body.subject,
+            text: req.body.message,
+            // html: req.body.message
+        }
+        transporter.sendMail(mailOptions, function (error) {
+            if (error) {
+                return console.log('message non envoyé');
+            }
+            console.log('Message envoyé')
+            res.render('email.ejs');
+        });
+
+        transporter.close();
+    });
+
 };
 
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated())
+    if (req.isAuthenticated()) 
         return next();
-
+    
     res.redirect('/');
 }
