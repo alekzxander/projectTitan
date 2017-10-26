@@ -6,9 +6,14 @@ module.exports = function (app, passport) {
     var smtpTransport = require('nodemailer-smtp-transport');
     var constants = require('../config/constants');
     let email = require("../lib/email")
+const permissions = require('../config/permissions');
+
+module.exports = function (app , passport) {
+let voyage = require('./models/voyage')
+let user = require('./models/user')
 
     // normal routes ===============================================================
-    app.get('/dashbord', (req, res) => {
+    app.get ('/dashbord',permissions.can('access admin page'), (req, res)=> {
         res.render('dashbord.ejs')
 
     })

@@ -8,13 +8,13 @@ module.exports = function (passport) {
     // =========================================================================
     // passport session setup ==================================================
     // =========================================================================
-    // required for persistent login sessions passport needs ability to serialize
-    // and unserialize users out of session used to serialize the user for the
-    // session
-    passport
-        .serializeUser(function (user, done) {
-            done(null, user.id);
-        });
+    // required for persistent login sessions
+    // passport needs ability to serialize and unserialize users out of session
+
+    // used to serialize the user for the session
+    passport.serializeUser(function(user, done) {
+        done(null, user );
+    });
 
     // used to deserialize the user
     passport.deserializeUser(function (id, done) {
@@ -74,7 +74,8 @@ module.exports = function (passport) {
     }, function (req, email, password, done) {
         if (email) 
             email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
-        
+
+        var roles = req.body.roles;    
         var telephone = req.body.telephone;
         var nom = req.body.nom;
         var prenom = req.body.prenom;
@@ -83,70 +84,60 @@ module.exports = function (passport) {
         process.nextTick(function () {
             // if the user is not already logged in:
             if (!req.user) {
-                User
-                    .findOne({
-                        'local.email': email
-                    }, function (err, user) {
-                        // if there are any errors, return the error
-                        if (err) 
-                            return done(err);
-                        
-                        // check to see if theres already a user with that email
-                        if (user) {
-                            return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
-                        } else {
+                User.findOne({ 'local.email' :  email }, function(err, user) {
+                    // if there are any errors, return the error
+                    if (err)
+                        return done(err);
 
-                            // create the user
-                            var newUser = new User();
-                            newUser.roles = ['admin'];
-                            newUser.roles = ['user'];
-                            newUser.local.telephone = telephone;
-                            newUser.local.nom = nom;
-                            newUser.local.prenom = prenom;
-                            newUser.local.date = date;
-                            newUser.local.email = email;
-                            newUser.local.password = newUser.generateHash(password);
+                    // check to see if theres already a user with that email
+                    if (user) {
+                        return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                    } else {
 
-                            newUser.save(function (err) {
-                                if (err) 
-                                    return done(err);
+                        // create the user
+                        var newUser            = new User();
+                        role: req.body.role;
+                        newUser.roles = ['admin'];
+                        newUser.roles = ['user'];
+                        newUser.local.telephone = telephone;
+                        newUser.local.nom = nom;
+                        newUser.local.prenom = prenom;
+                        newUser.local.date = date;
+                        newUser.local.email    = email;
+                        newUser.local.password = newUser.generateHash(password);
 
-                                var email = require('../lib/email.js');
-                                email.activate_email(req.body.name, req.body.email, active_code);
-                                return done(null, newUser, req.flash('success', 'Account Created Successfully,Please Check Your Email For Account Confirmation.'));
+                        newUser.save(function(err) {
+                            if (err)
+                                return done(err);
 
-                                return done(null, newUser);
-                            });
-                        }
+                            return done(null, newUser);
+                        });
+                    }
 
-                    });
-                // if the user is logged in but has no local account...
-            } else if (!req.user.local.email) {
-                // ...presumably they're trying to connect a local account BUT let's check if
-                // the email used to connect a local account is being used by another user
-                User
-                    .findOne({
-                        'local.email': email
-                    }, function (err, user) {
-                        if (err) 
-                            return done(err);
-                        
-                        if (user) {
-                            return done(null, false, req.flash('loginMessage', 'That email is already taken.'));
-                            // Using 'loginMessage instead of signupMessage because it's used by
-                            // /connect/local'
-                        } else {
-                            var user = req.user;
-                            user.local.email = email;
-                            user.local.password = user.generateHash(password);
-                            user.save(function (err) {
-                                if (err) 
-                                    return done(err);
-                                
-                                return done(null, user);
-                            });
-                        }
-                    });
+                });
+            // if the user is logged in but has no local account...
+            } else if ( !req.user.local.email ) {
+                // ...presumably they're trying to connect a local account
+                // BUT let's check if the email used to connect a local account is being used by another user
+                User.findOne({ 'local.email' :  email }, function(err, user) {
+                    if (err)
+                        return done(err);
+                    
+                    if (user) {
+                        return done(null, false, req.flash('loginMessage', 'That email is already taken.'));
+                        // Using 'loginMessage instead of signupMessage because it's used by /connect/local'
+                    } else {
+                        var user = req.user;
+                        user.local.email = email;
+                        user.local.password = user.generateHash(password);
+                        user.save(function (err) {
+                            if (err)
+                                return done(err);
+                            
+                            return done(null,user);
+                        });
+                    }
+                });
             } else {
                 // user is logged in and already has a local account. Ignore signup. (You should
                 // log out before trying to create a new account, user!)
