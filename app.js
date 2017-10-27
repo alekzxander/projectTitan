@@ -6,16 +6,25 @@ let app = express();
 var port = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var passport = require('passport');
-var flash = require('connect-flash');
-var morgan = require('morgan');
+var flash    = require('connect-flash');
+
+
+var permissions = require('./config/permissions');
+var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var ConnectRoles = require('connect-roles');
+var roles = new ConnectRoles()
+
 var configDB = require('./config/database.js');
 
-// configuration
-mongoose.connect(configDB.url, {useMongoClient: true}); // connection database
+
+
+
+// configuration 
+const nodemailer = require("nodemailer");
+mongoose.connect(configDB.url, { useMongoClient: true }); // connection database
 mongoose.Promise = global.Promise;
 
 require('./config/passport')(passport); // pass passport for configuration
@@ -27,9 +36,11 @@ app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.set('view engine', 'ejs'); // set up ejs for templating
+app.use(permissions.middleware());
 
 // required for passport
 app.use(session({
+
     secret: 'ilovescotchscotchyscotchscotch', // session secret
     resave: true,
     saveUninitialized: true

@@ -3,12 +3,10 @@ module.exports = function (app, passport) {
     let config = require('../config/passport');
     let user = require('./models/user');
     var nodemailer = require('nodemailer');
-    var smtpTransport = require('nodemailer-smtp-transport');
-    var constants = require('../config/constants');
-    let email = require("../lib/email")
+     const permissions = require('../config/permissions');
 
     // normal routes ===============================================================
-    app.get('/dashbord', (req, res) => {
+    app.get('/dashbord', permissions.can('access admin page'), (req, res) => {
         res.render('dashbord.ejs')
 
     })
@@ -56,7 +54,8 @@ module.exports = function (app, passport) {
         res.render('mentions.ejs')
     })
     // =============================================================================
-    // AUTHENTICATE (FIRST LOGIN) ==================================================
+    // AUTHENTICATE (FIRST LOGIN)
+    // ==================================================
     // =============================================================================
     // locally -------------------------------- LOGIN
     // =============================== show the login form
@@ -88,7 +87,8 @@ module.exports = function (app, passport) {
     }));
 
     // =============================================================================
-    // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
+    // AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT)
+    // =============
     // =============================================================================
     // locally --------------------------------
     app.get('/connect/local', function (req, res) {
@@ -104,12 +104,12 @@ module.exports = function (app, passport) {
     }));
 
     // =============================================================================
-    // UNLINK ACCOUNTS =============================================================
+    // UNLINK ACCOUNTS
+    // =============================================================
     // =============================================================================
-    // used to unlink accounts. for social accounts, just remove the token for
-    // local account, remove email and password user account will stay active in
-    // case they want to reconnect in the future local
-    // -----------------------------------
+    // used to unlink accounts. for social accounts, just remove the token for local
+    // account, remove email and password user account will stay active in case they
+    // want to reconnect in the future local -----------------------------------
     app.get('/unlink/local', isLoggedIn, function (req, res) {
         let user = req.user;
         user.local.email = undefined;
@@ -123,37 +123,6 @@ module.exports = function (app, passport) {
     app.get('/contact', (req, res) => {
         res.render('contact.ejs')
     })
-
-    app.post('/email',(req,res,next)=>{
-        var transporter = nodemailer.createTransport(smtpTransport({
-            host: constants.email_smtp_host,
-            port: constants.email_smtp_port,
-        }));
-        
-        exports.activate_email = function(user_name,email,acitvate_link) {
-            // setup e-mail data with unicode symbols
-            var mailOptions = {
-                from: constants.smtp_from_name+constants.smtp_from_email, 
-                to: constants.adminmail, 
-                subject: req.body.subject, 
-                html: req.body.message
-            };
-            
-        
-            // send mail with defined transport object
-            transporter.sendMail(mailOptions, function (error, info) {
-                if (error) {
-                    res.render('emailnot.ejs')
-                }
-                res.render('email.ejs')
-            });
-        
-          
-          
-        };
-             
-    })
-    
 
 }
 
