@@ -5,11 +5,10 @@
       overflow-x: hidden;
       background: #F1EEEE;
   }
+
   body,
   html {
       height: 100%;
-
-      
   }
 
   .nav .open>a,
@@ -446,63 +445,65 @@
       padding-top: 30px;
   }
   /* =======Itineraire=========*/
-  .itineraire-img img
-  {
+
+  .itineraire-img img {
       height: 500px;
   }
-  .personnalisable
-  {
+
+  .personnalisable {
       background: #E69B2B;
       color: white;
       height: 500px;
       padding-top: 18px;
       padding-left: 15px;
-      
   }
-  .personnalisable p
-  {
+
+  .personnalisable p {
       font-size: 21px;
       margin-right: 15px;
   }
-  .personnalisable img
-  {
-      width:100px;
+
+  .personnalisable img {
+      width: 100px;
       height: 100px;
       margin-bottom: 50px;
       margin-top: 20px;
   }
-  .descriptif
-  {
+
+  .descriptif {
       margin-top: -1px;
       background: white;
       border: 0.5px solid #E2DDDD;
-      padding: 30px; 
+      padding: 30px;
       color: #3D3939;
       letter-spacing: 0.5px;
       font-family: 'Roboto', sans-serif;
       font-size: 19px;
   }
-  .descriptif img 
-  {
+
+  .descriptif img {
       margin-top: 10px;
   }
+
   .descriptif h3 {
-    color: #000000;
-    margin-bottom: 20px;
-    margin-top: 30px;
-}
-.VerticalSeparator
-{
-    border-left: 1.0px solid #93979C; /* Border on the left */
-    width: 0.5px; /* Width instead of height */
-    height: 200px;
-}
-@media all and (max-width:890px){
-    .VerticalSeparator
-        {
-            display: none;
-        }
-}
+      color: #000000;
+      margin-bottom: 20px;
+      margin-top: 30px;
+  }
+
+  .VerticalSeparator {
+      border-left: 1.0px solid #93979C;
+      /* Border on the left */
+      width: 0.5px;
+      /* Width instead of height */
+      height: 200px;
+  }
+
+  @media all and (max-width:890px) {
+      .VerticalSeparator {
+          display: none;
+      }
+  }
   /* =======FOOTER ============*/
 
   footer {
@@ -527,15 +528,18 @@
       margin-left: 30px;
       color: #fff;
   }
-
   /* === dashbord === */
-    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-    .row.content {height: 1500px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
+  /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+
+  .row.content {
+      height: 1500px
+  }
+  /* Set gray background color and 100% height */
+
+  .sidenav {
       background-color: #f1f1f1;
       height: 100%;
+<<<<<<< HEAD
     }
     .carteSupp
     {
@@ -552,16 +556,31 @@
     }
     /* Set black background color, white text and some padding */
     footer {
+=======
+  }
+  /* Set black background color, white text and some padding */
+
+  footer {
+>>>>>>> e381bca3292aa3e63a1f16633cceb9aded659e49
       background-color: #555;
       color: white;
       padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
+  }
+  /* On small screens, set height to 'auto' for sidenav and grid */
+
+  @media screen and (max-width: 767px) {
       .sidenav {
-        height: auto;
-        padding: 15px;
+          height: auto;
+          padding: 15px;
       }
-      .row.content {height:auto;} 
-    }
+      .row.content {
+          height: auto;
+      }
+  }
+  
+/* ========= Contact ================ */
+
+form {
+    margin-left: 500px;
+
+}

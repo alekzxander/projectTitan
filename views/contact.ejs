@@ -3,54 +3,37 @@
     <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 
-<form class="form-vertical" role="form" method="post" action="/email">
+<form class="form-vertical" role="form" method="post" action="https://script.google.com/macros/s/AKfycbxnaBNuLVdoDqZTZaIiJY83OvwKZIT1EPAQ5pjR_rqdzujYyEo/exec">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center ">
 
+                <div class="form-group">
+                   <label for="mail">Nom et prénom</label>
+                    <input class="form-control input-sm" name="name" id="name" type="name" value="" required placeholder="Entrer votre nom et prénom">
+                </div>
+               
 
-    <div class="form-group">
-        <div class="col-md-3 text-center">
-            <label for="lastname">Nom</label>
-            <input class="form-control input-sm" name="lastname" id="lastname" type="text" value="" required placeholder="Entrer votre nom">
+                <div class="form-group">                   
+                    <label for="mail">Mail</label>
+                    <input class="form-control input-sm" name="email" id="email" type="email" value="" required placeholder="Entrer votre mail">
+                   
+                </div>
 
+                <div class="form-group">                   
+                    <label for="subject">Sujet</label>
+                    <input class="form-control input-sm" name="subject" id="subject" type="text" value="" required placeholder="Entrer l'objet de mail">
+                   
+                </div>
+
+                <div class="form-group">                   
+                    <label for="message"> Message</label>
+                    <textarea class="form-control input-sm" name="message" id="message" rows="5" value="" required placeholder="Entrer votre message"></textarea>
+                </div>
+               
+                <button class="btn btn-success " type="submit" id="submit">Envoyez</button>
+               
+            </div>
         </div>
     </div>
-
-    <div class="form-group">
-        <div class="col-md-3 text-center">
-            <label for="firstname">Prénom</label>
-            <input class="form-control input-sm" name="firstname" id="firstname" type="text" value="" required placeholder="Entrer votre prénom">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-3 text-center">
-            <label for="mail">Mail</label>
-            <input class="form-control input-sm" name="email" id="email" type="email" value="" required placeholder="Entrer votre mail">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-3 text-center">
-            <label for="tel">Numéro de Tel</label>
-            <input class="form-control input-sm" name="tel" id="tel" type="number" value="" required placeholder="Entrer votre numéro de téléphone">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-3 text-center">
-            <label for="subject">Sujet</label>
-            <input class="form-control input-sm" name="subject" id="subject" type="text" value="" required placeholder="Entrer l'objet de mail">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-12 text-center">
-            <label for="message">Votre message</label>
-            <textarea class="form-control" name="message" id="message" rows="5" value="" required placeholder="Entrer votre message"></textarea>
-        </div>
-    </div>
-
-    <div class="col-md-12 text-center">
-        <button class="btn btn-success btnctc " type="submit" id="submit">Envoyez</button>
-    </div>
-
 </form>

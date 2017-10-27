@@ -5,7 +5,7 @@ let voyage = require('./models/voyage')
 
 
     // normal routes ===============================================================
-    app.get ('/dashbord',permissions.can('access admin page'), (req, res)=> {
+    app.get('/dashbord', permissions.can('access admin page'), (req, res) => {
         res.render('dashbord.ejs')
 
     })
@@ -54,9 +54,7 @@ let voyage = require('./models/voyage')
         req.logout();
         res.redirect('/');
     });
-    app.get('/contact', (req, res, next) => {
-        res.render('contact.ejs')
-    })
+
     app.get('/mentionslegales', (req, res) => {
         res.render('mentions.ejs')
     })
@@ -126,35 +124,12 @@ let voyage = require('./models/voyage')
         });
     });
 
-    // ============ Formulaire de Contact ====================== 
+    // ============ Formulaire de Contact ======================
+    app.get('/contact', (req, res) => {
+        res.render('contact.ejs')
+    })
 
-    app.post('/email', (req, res, next) => {
-        let transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: 'laurent.gregoire974@gmail.com',
-                pass: 'Bit97coin4'
-            }
-        });
-        let mailOptions = {
-            from: req.body.email,
-            to: 'laurent.gregoire974@gmail.com',
-            subject: req.body.subject,
-            text: req.body.message,
-            // html: req.body.message
-        }
-        transporter.sendMail(mailOptions, function (error) {
-            if (error) {
-                return console.log('message non envoyé');
-            }
-            console.log('Message envoyé')
-            res.render('email.ejs');
-        });
-
-        transporter.close();
-    });
-
-};
+}
 
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {
