@@ -558,12 +558,10 @@
           height: auto;
       }
   }
-  /* ========= Contact ================ */
+  
+/* ========= Contact ================ */
 
-  /* .formemail {
-      margin : 40px 0px 0px 340px;
-  }
+form {
+    margin-left: 500px;
 
-  .formsub {
-      margin: 140px 0px 40px -70px;
-  } */
+}
