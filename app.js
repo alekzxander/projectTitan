@@ -12,7 +12,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var ConnectRoles = require('connect-roles');
-const nodemailer = require("nodemailer");
 var configDB = require('./config/database.js');
 
 // configuration

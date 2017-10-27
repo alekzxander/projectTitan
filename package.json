@@ -30,11 +30,10 @@
     "express-session": "^1.15.6",
     "mongoose": "^4.12.3",
     "morgan": "^1.9.0",
-    "nodemailer": "^4.3.0",
+    "nodemailer": "^4.3.1",
+    "nodemailer-smtp-transport": "^2.7.4",
     "nodemon": "^1.12.1",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "query": "^0.2.0",
-    "req": "^0.1.4"
+    "passport-local": "^1.0.0"
   }
 }
