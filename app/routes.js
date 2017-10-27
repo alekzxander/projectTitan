@@ -9,17 +9,17 @@ let voyage = require('./models/voyage')
         res.render('dashbord.ejs')
 
     })
-
-    app.get('/dashbord/card', (req, res) => {
-        voyage.find((err, carte)=>{
-            res.render('card.ejs',{cartes : carte});
-        });
-    });
     app.get('/cardSupp/:id', (req, res)=>{
         voyage.remove({_id : req.params.id}, (err, delData)=>{
             res.render("validation.ejs");
         })
     })
+    app.get('/dashbord/card', (req, res) => {
+        voyage.find((err, carte)=>{
+            res.render('card.ejs',{cartes : carte});
+        });
+    });
+  
     app.get('/dashbord/dashItineraire', (req, res) => {
         res.render('dashItineraire.ejs')
     })
