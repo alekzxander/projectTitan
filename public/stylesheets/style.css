@@ -537,7 +537,19 @@
       background-color: #f1f1f1;
       height: 100%;
     }
-    
+    .carteSupp
+    {
+        padding: 20px;
+        border-radius:10px;
+        background: #C5C5D3;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .carteSupp .btn-danger
+    {
+        background: #CF3030;
+        padding: 5px;
+    }
     /* Set black background color, white text and some padding */
     footer {
       background-color: #555;

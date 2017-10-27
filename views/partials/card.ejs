@@ -43,5 +43,19 @@
                 <button type="submit" class="btn btn-warning btn-lg">Confirmer</button>
         </form>
 </div>
+ <h1>Supprimer une carte</h1>
+<div class="row">
+    <% cartes.forEach((carte)=>{ %>
 
+        <div class="col-md-3">
+            <div class="carteSupp">
+                <h3>
+                    <%= carte.name %>
+                </h3>
+                <a class="btn btn-danger btn-lg" href="/cardSupp/<%= carte._id %>">Supprimer</a>
+            </div>
+        </div>
+        <% })%>
+</div>
+   
 

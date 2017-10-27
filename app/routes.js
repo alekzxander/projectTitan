@@ -2,7 +2,7 @@ const permissions = require('../config/permissions');
 
 module.exports = function (app , passport) {
 let voyage = require('./models/voyage')
-let user = require('./models/user')
+
 
     // normal routes ===============================================================
     app.get ('/dashbord',permissions.can('access admin page'), (req, res)=> {
@@ -11,9 +11,15 @@ let user = require('./models/user')
     })
 
     app.get('/dashbord/card', (req, res) => {
-        res.render('card.ejs')
+        voyage.find((err, carte)=>{
+            res.render('card.ejs',{cartes : carte});
+        });
+    });
+    app.get('/cardSupp/:id', (req, res)=>{
+        voyage.remove({_id : req.params.id}, (err, delData)=>{
+            res.render("validation.ejs");
+        })
     })
-
     app.get('/dashbord/dashItineraire', (req, res) => {
         res.render('dashItineraire.ejs')
     })
